@@ -613,3 +613,104 @@ body {
         bottom: 24px;
     }
 }
+
+/* ====================================================
+   DARK THEME VARIABLES & OVERRIDES
+   ==================================================== */
+[data-theme="dark"] {
+    --bg-page: #0b0f19;
+    --card-surface: #151c2c;
+    --text-primary: #f1f5f9;
+    --text-secondary: #94a3b8;
+    --border-subtle: #232d42;
+    --shadow-soft: 0 10px 26px rgba(0, 0, 0, 0.35);
+    --shadow-card: 0 14px 35px rgba(0, 0, 0, 0.45);
+}
+
+/* Header Top Row */
+.header-top-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+/* Theme Toggle Button */
+.theme-toggle-btn {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 1px solid var(--border-subtle);
+    background: var(--card-surface);
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: var(--shadow-soft);
+    transition: transform 0.15s ease, background 0.25s ease, border-color 0.25s ease;
+}
+
+.theme-toggle-btn:active {
+    transform: scale(0.92);
+}
+
+.theme-toggle-btn .sun-icon {
+    display: none;
+}
+
+.theme-toggle-btn .moon-icon {
+    display: block;
+}
+
+[data-theme="dark"] .theme-toggle-btn .sun-icon {
+    display: block;
+    color: #fbbf24;
+}
+
+[data-theme="dark"] .theme-toggle-btn .moon-icon {
+    display: none;
+}
+
+/* Dark Mode Card Backgrounds & Accents */
+[data-theme="dark"] .phone-frame,
+[data-theme="dark"] .phone {
+    background-color: #0b0f19;
+}
+
+[data-theme="dark"] .hero-sun-card,
+[data-theme="dark"] .current-card {
+    background: linear-gradient(180deg, #161e31 0%, #121827 100%);
+    border-color: #232d42;
+}
+
+[data-theme="dark"] .hero-sun-card::before,
+[data-theme="dark"] .current-card::before {
+    background: radial-gradient(circle, rgba(255, 140, 33, 0.2) 0%, rgba(255, 140, 33, 0.05) 50%, rgba(0,0,0,0) 75%);
+}
+
+[data-theme="dark"] .condition-badge {
+    background: rgba(255, 140, 33, 0.16);
+    color: #ffaa5b;
+}
+
+[data-theme="dark"] .icon-circle {
+    background: #1d263b;
+}
+
+[data-theme="dark"] .forecast-hourly .hour-chip,
+[data-theme="dark"] .forecast-hourly > div {
+    background: #192236;
+}
+
+[data-theme="dark"] .bottom-nav {
+    background: rgba(21, 28, 44, 0.92);
+    border-color: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5);
+}
+
+[data-theme="dark"] .search-box button,
+[data-theme="dark"] .search-bar button {
+    background: #ff8c21;
+    color: #ffffff;
+}

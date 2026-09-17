@@ -574,3 +574,24 @@ function buildBlurb(day) {
     }
 
 }
+
+// ==========================================
+// THEME TOGGLE (LIGHT / DARK)
+// ==========================================
+const themeToggleBtn = document.getElementById('themeToggle');
+
+// Load saved preference or check device setting
+const savedTheme = localStorage.getItem('app-theme') || 
+    (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+
+document.documentElement.setAttribute('data-theme', savedTheme);
+
+if (themeToggleBtn) {
+    themeToggleBtn.addEventListener('click', () => {
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        const nextTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        
+        document.documentElement.setAttribute('data-theme', nextTheme);
+        localStorage.setItem('app-theme', nextTheme);
+    });
+}
