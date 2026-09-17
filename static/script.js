@@ -595,3 +595,26 @@ if (themeToggleBtn) {
         localStorage.setItem('app-theme', nextTheme);
     });
 }
+
+// Automatically detect city on app startup
+async function detectUserLocation() {
+    try {
+        const response = await fetch('https://ipapi.co/json/');
+        const data = await response.json();
+        
+        if (data && data.city) {
+            cityInput.value = data.city;
+            getWeather();
+            return;
+        }
+    } catch (error) {
+        console.warn('Auto-location detection failed:', error);
+    }
+
+    // Fallback if detection fails or is blocked
+    cityInput.value = 'Dubai';
+    getWeather();
+}
+
+// Run when the app opens
+detectUserLocation();
